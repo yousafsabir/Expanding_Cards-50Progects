@@ -1,0 +1,90 @@
+/*Adding Roboto font here*/
+@import url("https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap");
+
+/* Setting box-sizing to border-box so if we add padding or border to an element it won't bother its width */
+
+* {
+  box-sizing: border-box;
+}
+
+.upperContainer {
+  font-family: "Muli", sans-serif;
+
+  display: flex;
+  /* Applying Flexbox */
+
+  /* flex-direction: column; */
+  /* flex-direction is applied to horizontally by default so we are gonna change it to vertical */
+  /* This won't work here, It'll work in .container */
+
+  align-items: center;
+  /* Since it is a flexbox, we can align items  */
+
+  justify-content: center;
+  /*  But this will only allign items horizontally. To make it at center vertically as well, we have another property*/
+
+  height: 100vh;
+  /* Nothing happened because our body doesn't have height, so we're gonna give it some height */
+  /* 100vh is gonna take all the viewport height of the browser */
+
+  overflow: hidden;
+  /* And we Also don't want the scroll bars */
+
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80vh;
+  border-radius: 20px;
+  color: black;
+  cursor: pointer;
+  flex: 0.5;
+  /* This flex is gonna make them all same in size */
+  margin: 10px;
+  position: relative;
+  /* This is gonna take position of the text relative to the flexbox */
+  transition: flex 0.7s ease-in;
+}
+
+/* Now the text of the pictures */
+.panel h2 {
+  font-size: 24px;
+  position: absolute;
+  /* The above position was for the text to be in the image. And this is for the text to be absolute within the image and on bottom left*/
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+  /* The opacity is zero because */
+}
+
+.panel.active {
+  flex: 5;
+  /* So when the panel is active, its flex will be more */
+}
+
+.panel.active h2 {
+  opacity: 1;
+  /* silmilarly, when the panel is active, the text reappears */
+  transition: opacity 1s /*opacity from 100 to 0 in 1s*/ ease-in
+    /*idk what it does*/ 0.7s /*its delay*/;
+}
+/* for smaller screens to show only three of the five columns */
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
