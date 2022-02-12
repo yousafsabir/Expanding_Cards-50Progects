@@ -1,0 +1,1 @@
+created a nice expanding cards template using html/css/js 
